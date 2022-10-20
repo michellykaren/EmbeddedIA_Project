@@ -1,4 +1,5 @@
 # **Projet IA Embarqué - EMSE**
+Élèves Michelly PEREIRA et Zhuan
 
 ## Objectifs
 Dans ce projet, nous étudions d’intégrer une modèle CNN dans la carte STM32L4, pour le dataset dédié à la détection de maladie de la vigne par l'analyse d'images de feuilles sur le jeu de données esca_dataset.
