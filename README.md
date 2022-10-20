@@ -4,11 +4,9 @@
 Dans ce projet, nous étudions d’intégrer une modèle CNN dans la carte STM32L4, pour le dataset dédié à la détection de maladie de la vigne par l'analyse d'images de feuilles sur le jeu de données esca_dataset.
 
 ## Jeu de données
-
-<img src="https://user-images.githubusercontent.com/29697453/197035673-efdc06f0-42c9-43a9-9291-4e17d4d43c57.jpg" width="300"/>
-
-![esca_019_cam1](https://user-images.githubusercontent.com/29697453/197035607-89dcb607-d79b-40ce-8d77-697dffe0c397.jpg)
-
+<div>
+ <img src="https://user-images.githubusercontent.com/29697453/197035673-efdc06f0-42c9-43a9-9291-4e17d4d43c57.jpg" width="505"/>
+ <img src="https://user-images.githubusercontent.com/29697453/197035607-89dcb607-d79b-40ce-8d77-697dffe0c397.jpg" width="505"/>
 </div>
 
 ## esca_dataset
