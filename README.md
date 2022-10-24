@@ -67,7 +67,7 @@ Pour pouvoir entraîner notre modèle, il nous faut un dataset avec une bonne qu
 <br>
 <br>
 
-La base de code DataAugmentation a été fournie par l'enseignant pendant le cours et nous avons apporté les modifications nécessaires pour appliquer les changements à notre jeu de données. Dans l'image ci-dessous, vous pouvez voir la liste des opérations disponibles. Ces opérations vont générer de nouvelles images, dans notre cas, nous les appliquons de manière aléatoire horizontalFlips, rotations, shearRange, zooms et nous améliorons la luminosité, le contraste et la saturation des images.
+La base de code DataAugmentation a été fournie par l'enseignant pendant le cours et nous avons apporté les modifications nécessaires pour appliquer les changements à notre jeu de données. Dans l'image ci-dessus, vous pouvez voir la liste des opérations disponibles. Ces opérations vont générer de nouvelles images, dans notre cas, nous les appliquons de manière aléatoire horizontalFlips, rotations, shearRange, zooms et nous améliorons la luminosité, le contraste et la saturation des images.
 
 ### Entraînement du modèle 
 ### Configurations sur CubeMX
