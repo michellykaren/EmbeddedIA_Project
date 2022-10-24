@@ -38,6 +38,10 @@ Les données, fournies par STMicroelectronics et disponibles sur l'Internet, ont
 </ol>
 
 ## Pré-requis matériels 
+<ol>
+  <li>Nucléo F411RE Board</li>
+</ol>
+
 
 ## Modèle de machine learning 
 Les phases de machine learning en Python sont très importantes dans ce projet, néanmoins pour faciliter la compréhension de notre modèle par le lecteurs nous avons ci-dessous une figure du déroulement des étapes de notre CNN qui sera intégré, testé et validé.
@@ -62,19 +66,55 @@ Chaque phase de notre méthodologie sera expliquée en détail par la suite.
 
 Pour pouvoir entraîner notre modèle, il nous faut un dataset avec une bonne quantité et surtout une bonne qualité des données. En effet, il est préférable d'appliquer les transformations pour augmenter la diversité et donc le champ d'apprentissage de notre modèle. Nous pouvons alors améliorer efficacement le processus d'apprentissage puisqu'il en résulte en plus d'échantillons d'entrainement pour le modèle.
 
-![do](https://user-images.githubusercontent.com/29697453/197527116-3cc51d18-d08c-4299-b9b8-0ad71e191481.png)
-<br>Figure x
+
+<div>
+ <img src="https://user-images.githubusercontent.com/29697453/197527116-3cc51d18-d08c-4299-b9b8-0ad71e191481.png" width="500"/>
+ <br>Figure x
+</div>
+
 <br>
 <br>
 
 La base de code DataAugmentation a été fournie par l'enseignant pendant le cours et nous avons apporté les modifications nécessaires pour appliquer les changements à notre jeu de données. Dans l'image ci-dessus, vous pouvez voir la liste des opérations disponibles. Ces opérations vont générer de nouvelles images, dans notre cas, nous les appliquons de manière aléatoire horizontalFlips, rotations, shearRange, zooms et nous améliorons la luminosité, le contraste et la saturation des images.
 
 ### Entraînement du modèle 
+
+![312583538_5612427252207688_858929209927743802_n](https://user-images.githubusercontent.com/29697453/197641363-95820b8d-0b46-4ac1-9f6c-ad9b8fd58a38.png)
+<br>Figure x
+
 ### Configurations sur CubeMX
+
+
 ### Communication 
-### Test et validation
+![312585686_3307257036203296_3800052736440173189_n (1)](https://user-images.githubusercontent.com/29697453/197642471-3ddad507-1b9c-4d6b-879a-9eddf08bc989.png)
+<br>Figure x
+
 ### Interprétation des résultats 
+
+<div>
+ <img src="https://user-images.githubusercontent.com/29697453/197642840-4f3e77d3-024a-4f63-944b-6da9e36a621c.png" width="600"/>
+ <br>Figure x
+</div>
+
+<br><br>
+
+<div>
+ <img src="https://user-images.githubusercontent.com/29697453/197644334-6761962b-2e75-4a2c-bb65-b43e8fa2a3c5.png" width="600"/>
+ <br>Figure x
+</div>
+
+## Attaques sur le jeu de données
+![Capture d’écran 2022-10-25 004706](https://user-images.githubusercontent.com/29697453/197644180-d9d77457-e1a8-4b68-8552-e9c10cdf263e.png)
+<br>Figure x
+
+![Capture d’écran 2022-10-25 004554](https://user-images.githubusercontent.com/29697453/197643997-3505da8b-8c1b-4a49-aac3-41595bac6b81.png)
+<br>Figure x
+
 ## Conclusion
+
+Nous avons eu l'occasion de découvrir l'IA embarquée, un sujet en pleine croissance sur le marché technologique et qui intéresse plusieurs entreprises. La croissance des objets connectés et des systèmes de plus en plus intelligents rend le sujet intéressant et stimulant à la fois, avec de nombreuses possibilités de création et d'innovation. En même temps, nous pouvons voir comment la technologie peut aider les problèmes humains, dans ce cas, dans l'agriculture et la plantation. En tant qu'ingénieurs, nous devons toujours aller de l'avant en réfléchissant à la manière d'aider les gens et notre environnement, sans avoir besoin d'utiliser des produits toxiques et en étant même capables de prédire les problèmes avant même qu'ils ne se produisent, dans ce contexte, l'AI Embarquée se révèle être un outil formidable.
+
+
 ## Références 
 [1] TinyML Machine Learning with TensorFlow Lite on Arduino and Ultra-Low-Power Microcontrollers - disponible sur https://tinymlbook.com/wp-content/uploads/2020/11/TinyML_preview.pdf 
 <br>
@@ -82,7 +122,7 @@ La base de code DataAugmentation a été fournie par l'enseignant pendant le cou
 <br>
 [3] TinyML Summit - https://www.tinyml.org/
 <br>
-[4] disponible surhttps://data.mendeley.com/datasets/89cnxc58kj/1
+[4] ESCA-dataset - disponible sur https://data.mendeley.com/datasets/89cnxc58kj/1
 <br>
 
 
