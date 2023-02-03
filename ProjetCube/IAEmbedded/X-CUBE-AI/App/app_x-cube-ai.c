@@ -58,6 +58,7 @@
 #include "small_model_data.h"
 
 /* USER CODE BEGIN includes */
+ 	 extern UART_HandleTypeDef huart2;   //Bus UART
 /* USER CODE END includes */
 
 /* IO buffers ----------------------------------------------------------------*/
@@ -178,18 +179,50 @@ int acquire_and_process_data(ai_i8* data[])
   }
 
   */
-  return 0;
+
+	uint8_t tmp[4] = {0};
+	float input[45][80][3] = {0};
+
+	int i,j,k,z;
+	for (z=0; z<3;z++){
+		for (i = 0; i < 45; i++){
+			for (j = 0; j < 80; j++){
+				HAL_UART_Receive(&huart2, (uint8_t *) tmp, sizeof(tmp), 100);
+				input[i][j][z] = *(float*) &tmp;
+				for ( k = 0; k < 4; k++){
+					((uint8_t *) data)[((i*135+j*3+z)*4)+k] = tmp[k];
+				}
+			}
+		}
+	}
+	return 0;
 }
 
 int post_process(ai_i8* data[])
 {
-  /* process the predictions
-  for (int idx=0; idx < AI_SMALL_MODEL_OUT_NUM; idx++ )
-  {
-      data[idx] = ....
-  }
+	 /* process the predictions */
+		unsigned char output_to_be_tx[3] = "010";
+		uint8_t *output = data; 
 
-  */
+		float prob_classes[2] = {0};
+		int i,j;
+		for (i = 0; i < 2; i++){
+			uint8_t tmp[4] = {0};
+			for (j=0; j < 4; j++){
+				tmp[j] = output[i*4+j];
+			}
+			prob_classes[i] = *(float*) &tmp;
+		}
+
+		HAL_UART_Transmit(&huart2, (uint8_t *) output_to_be_tx, sizeof(output_to_be_tx),100);
+		for(i = 0; i < 2; i++){
+			uint8_t tmp[4] = {0};
+			for (j=0; j < 4; j++){
+				tmp[j] = output[i*4+j];
+			}
+			HAL_UART_Transmit(&huart2, (uint8_t *) tmp, sizeof(tmp), 100);
+		}
+
   return 0;
 }
 /* USER CODE END 2 */
@@ -209,20 +242,52 @@ void MX_X_CUBE_AI_Process(void)
 {
     /* USER CODE BEGIN 6 */
   int res = -1;
+  uint8_t *in_data = NULL;
+  uint8_t *out_data = NULL;\
 
   printf("TEMPLATE - run - main loop\r\n");
 
   if (small_model) {
 
+#if defined(AI_SMALL_MODEL_INPUTS_IN_ACTIVATIONS)
+	  in_data = ai_input[0].data;
+#else
+	  in_data = in_data_s;
+#endif
+
+#if defined(AI_SMALL_MODEL_OUTPUTS_IN_ACTIVATIONS)
+	  out_data = ai_output[0].data;
+#else
+	  out_data = out_data_s;
+#endif
+
     do {
+      /* 0 - Synchronisation with Python Script */
+      unsigned char ack[4] = "0000";
+      unsigned char return_ack[3] = "101";
+      uint8_t sync = 0;
+      uint8_t ack_received = 0;
+
+      // Synchronisation loop
+      while(sync == 0){
+    	  while(ack_received != 1){
+    		  HAL_UART_Receive(&huart2, (uint8_t *) ack, sizeof(ack), 100);
+    		  if ((ack[0] == 's') && (ack[1] == 'y') && (ack[2] == 'n') && (ack[3] == 'c')){
+    			  ack_received = 1;
+    		  }
+    		  HAL_UART_Transmit(&huart2, (uint8_t *) return_ack, sizeof(return_ack), 100);
+    		  sync = 1;
+    	  }
+      }
       /* 1 - acquire and pre-process input data */
-      res = acquire_and_process_data(data_ins);
+      res = acquire_and_process_data(in_data);
       /* 2 - process the data - call inference engine */
       if (res == 0)
         res = ai_run();
       /* 3- post-process the predictions */
       if (res == 0)
-        res = post_process(data_outs);
+        res = post_process(out_data);
+      HAL_Delay(500);
     } while (res==0);
   }
 

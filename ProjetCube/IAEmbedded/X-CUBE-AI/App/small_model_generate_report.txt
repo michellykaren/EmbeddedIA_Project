@@ -1,6 +1,6 @@
 Neural Network Tools for STM32AI v1.6.0 (STM.ai v7.2.0-RC5)
-Created date          : 2022-10-18 20:27:26
-Parameters            : generate --name small_model -m D:/EMSE/MLembar/EmbeddedIA_Project/model_small_b32.h5 --type keras --compression none --verbosity 1 --workspace C:\Users\10990\AppData\Local\Temp\mxAI_workspace257873683118001003366292909579638 --output C:\Users\10990\.stm32cubemx\small_model_output --allocate-inputs --allocate-outputs
+Created date          : 2022-10-20 21:05:21
+Parameters            : generate --name small_model -m D:/EMSE/MLembar/EmbeddedIA_Project/model_small_b32.h5 --type keras --compression none --verbosity 1 --workspace C:\Users\10990\AppData\Local\Temp\mxAI_workspace2008478261106005330822483405581938 --output C:\Users\10990\.stm32cubemx\small_model_output --allocate-inputs --allocate-outputs
 
 Exec/report summary (generate)
 ------------------------------------------------------------------------------------------------------------------------
@@ -9,7 +9,7 @@ type                  : keras
 c_name                : small_model
 compression           : none
 allocator strategy    : ['allocate-inputs', 'allocate-outputs']
-workspace dir         : C:\Users\10990\AppData\Local\Temp\mxAI_workspace257873683118001003366292909579638
+workspace dir         : C:\Users\10990\AppData\Local\Temp\mxAI_workspace2008478261106005330822483405581938
 output dir            : C:\Users\10990\.stm32cubemx\small_model_output
 model_name            : model_small_b32
 model_hash            : 92f351c9c53fa9fcc3aba81f5f4a1843

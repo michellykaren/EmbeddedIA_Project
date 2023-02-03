@@ -2,7 +2,7 @@
   ******************************************************************************
   * @file    small_model_data.h
   * @author  AST Embedded Analytics Research Platform
-  * @date    Tue Oct 18 20:27:26 2022
+  * @date    Thu Oct 20 21:05:20 2022
   * @brief   AI Tool Automatic Code Generator for Embedded NN computing
   ******************************************************************************
   * Copyright (c) 2022 STMicroelectronics.
